@@ -1,0 +1,7 @@
+I, Rahul Chunduru, claim that the code that is being submitted for the assignment
+is my own, although the following resources were looked up, while coming up with it.
+
+
+1. https://stackoverflow.com/questions/3679694/a-weighted-version-of-random-choices
+   
+   For a weighted version of np.random

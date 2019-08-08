@@ -1,0 +1,71 @@
+Comparision among different initialization methods
+=======================================================
+A. It can be seen among the 3 initializations, random initializations performs the worst, 
+   as it takes 60+ iterations to converge and the converged value is a local minima(~1000) 
+   which is much higher than for the other two methods. 
+   The nearest neighbour performs much better (converges in about 16 iterations) and converges
+   to about 700 local minima. Wherehas, the euclidean tour took (also converges in about 16
+    iterations) and converges to around 700. But the convergence point for the nearest 
+    neighbour seems to be highle dependent on the initial city taken.
+
+    Considering all the above observations, I think euclidean tour is the best initialization
+    becuase it has the guarantee to be close to the true solution(unlike random 
+    initialization) and is also easier to compute(unlike nearest neighbour initialization). 
+
+    It(euclidean initialization) possibly also doesn't depend much on the 
+    initial choice of the city. 
+
+    Hence euclidean tour initialization is most recommended. 
+
+
+Comparing
+
+Task 2 and Task 6
+========================================================
+Q. How does 2-3 opt neighbours fare wrt 2opt neighbours in random initialization
+
+A. 2-3 opt converges faster. Using 2opt neighbours we see the convergence in about 70 
+iterations where as, for using 2+3 opt neighbours, we can see convergence in about 45 
+iterations. The values of convergence are almost the same for both the neighbour hood
+generating algorithms. Hence, becuase of faster convergence I think 2+3 opt neigbours 
+is a better neighbour hood generating algorithm. This is to be expected as there are 
+more transformations of the tour availiable in 2+3opt method, it performs a steeper 
+descent to the minima than 2opt method.
+
+
+Task 3 and Task 7 
+======================================================== 
+Q. How does 2-3 opt neighbours fare wrt 2opt neighbours in nearest neighbour initialization.
+A. Comparing both plots( task 3 and task7), we see that 2+3 neighourhood(about 10 iters) 
+converges faster than 2opt neighbours(about 17 iters). The converged values also appear to 
+be smaller for 2+3 opt compared to 2opt neighbour method. The convergence is steeper in 
+case of 2+3opt neighbour hood when compared to the 2opt neighbour hood.
+
+Hence, I think 2+3opt neighbourhood generation is better than 2opt method. This is to 
+be expected as the 2+3opt neighbourhood include more possiblities(steeper) of descent
+to the local minima. Hence, the observed smaller number of iterations required. The values
+of converges are closeby however.  
+
+
+
+Task 4 and Task 8
+======================================================== 
+Q. How does 2-3 opt neighbours fare wrt 2opt neighbours in Euclidean tour initialization ?
+A. Comparing both plots( task 4 and task8), we see that 2+3 neighourhood(about 16 iters) 
+converges is almost same as 2opt neighbours(about 16 iters). The converged values for 2+3 opt are very much same as that of 2opt neighbour method. 
+
+Hence, for euclidean initialization, I think 2+3 opt neighbourhood generation is just as good 
+as 2opt method. This is perhaps the initialization itself is good enough, the decent doesn't 
+need much modifications hence 2opt neighbours alone suffice. Since, 2opt neighbours are 
+easiers to compute, complexity wise 2opt neighbour method is better as it is giving the same 
+results faster. 
+
+
+
+=========================================================================================== 
+
+It can hence be seen that choosing neighbours generation algorithm appropriately, we can
+reach the minima in much faster iteration although the point itself may not change very
+much. Choosing the initialization properly will result in a good estimate of the global 
+minima.
+

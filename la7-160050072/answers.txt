@@ -1,0 +1,54 @@
+Task 3
+=============================================
+/// explain whether A* can be used for sudoku problem wrt to path cost and 
+A. Yes, we can simply define a naive A* with a unit path cost for traversal, and a null 
+   heuristic. That would be an uninformed BFS which, although complete, has far worse 
+   performance than the considered variant of DFS. 
+
+   An insightful heuristic and cost function isn't apparent for this problem 
+   because of the following reasons:
+   1. at single step, when we fill a single square, we don't know before hand
+      how many squares will be also filled. This makes it difficult to 
+      define a cost function for a step which is natural.
+   2. Two states may have a very different number of blank squares but 
+      are equally closer to the goal state. This makes it difficult to 
+      define a natural heuristic function.
+
+   Hence, an insightful heuristic and cost function may not be possible for 
+   the sudoku problem. 
+
+Task 6
+=============================================
+
+A. The euclidean distance from the point denoted by the given state and the goal/final
+   point is taken as the required consistent heuristic. The considered function is 
+   indeed consistent, by the triangle inequality(sum of two edges add up to more 
+   than the other in a triangle). 
+
+Task 7
+=============================================
+
+i. A* with null heuristic is the Uniform cost search algorithm which is also the 
+   Djikstra's algorithm. Therefore, if simple shortest path algorithms are used, the
+   number of nodes would be similar to when A* is used with null heuristic, which 
+   is about 80 nodes for IIT map and 26743 nodes for the Mumbai map. In general, a 
+   uninformed search algorithm (like Djikstras) would need to expand at least as
+   many nodes as by A* with null heuristic which could be the entire state space.
+
+ii. Suppose there are multiple points that the tour has to cover, then for each state, 
+    we can define heuristic as the largest among the euclidean distances from the given point 
+    and a goal point. This meets the requirement, because, any path from the given point and 
+    covering all the goal points, must be atleast as large as the euclidean distance between 
+    any two points in the path. We therefore take the "smallest" distance between the given 
+    point and a goal point as it is admissible and a good estimate. Taking the smallest 
+    distance ensures that we never over estimate the cost, irrespective of some of the 
+    points already being visited, hence admissibility follows and we can apply tree search.  
+
+    One other insightful heuristic would be to find an optimal ordering of the goal states 
+    (which are not yet visited, this has to be stored for a node) and estimate the cost of 
+    tour from the given point and the goal states, would be to sum the euclidean distance 
+    between consecutive points in the ordering. This is an admissible heuristic as any path 
+    is longer than the euclidean distance of the found optimal ordering. 
+
+
+

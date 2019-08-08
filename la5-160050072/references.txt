@@ -1,0 +1,11 @@
+I, Rahul Chunduru(160050072), state that the code submitted for the assignment is my own 
+and have not consulted any help from my classmates. 
+
+However, the following resources were looked while coming up with the code.
+
+1. https://stackoverflow.com/questions/8486294/how-to-add-an-extra-column-to-a-numpy-array
+	To add an extra column to an array.
+	similarly for appending rows.
+
+2. https://docs.scipy.org/doc/numpy/reference/generated/numpy.delete.html
+   for deleting the columns from the numpy array.

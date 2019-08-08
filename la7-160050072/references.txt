@@ -1,0 +1,8 @@
+I, Rahul Chunduru(160050072), claim that the code submitted for the assignment is my own
+and havent discussed with my collegues in coming up of this code.
+
+Here are references looked up while writing the code.
+
+1. http://norvig.com/sudoku.html 
+   Norvig's essay has been referredw.
+

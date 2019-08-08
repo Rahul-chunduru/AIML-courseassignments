@@ -1,0 +1,62 @@
+#List of the hyper parameters found minimal for classification of the dataset.
+
+# Task 2.1
+  It is seen that task (2,4,2) topology gives above 90 accuracy but after many iterations.
+  Instead, the model (2,5,2) (which is submitted) achieves above 90% accuracy for the same. 
+  
+  For hidden layer with 1 node, the accuracy is high( ~ 70 %) but it draws a linear
+  boundary. This is to expected, as there is no intervening in the topology, the only possible 
+  representable functions are linear ones.
+
+  With 2 hidden nodes, we see a boundary of 2 parallel lines. 
+
+  With 3 hidden nodes and above, the boundary becomes more non-linear.
+  With appropriate random seeds, all will give more than 90%, the model with 4 nodes is submitted as
+  it achieves it in smaller iterations, with random seed 61. Note, the random seed seems to be very
+  important in determining the accuracy.
+
+  the used learning rate - 0.1
+  the used batch size - 20
+  the used epoch size - 50
+
+# Task 2.2
+  The topology (2, 2 , 2) gives above 95 % accuracy. As metioned above the one hidden node topology (2 , 1, 2)
+  will result in a linear boundary which classifies the points with ~80%.
+
+  the used learning rate - 0.1
+  the used batch size - 20
+  the used epoch size - 30
+
+# Task 2.3
+
+	Minst data gives good result with a single layer - (784 , 10) (~60 %) after many iterations. For high accuracy, it seems a hidden layer is need. Also with a single hidden node, the accuracy is about 20% . These suggest that,
+	the minst data has a reasonably simple non-linear boundary. However, a minimum of 5 hidden nodes seems necessary
+	for achieving an accuracy of above 80%. The submitted model is of topology (784 , 20 , 10) with parameters
+
+	batch_size used - 30
+	learning rate used - 0.1
+	epochs - 15 
+	seed_value - 123 
+	accuracy achieved - 93.75 
+
+
+# Task 2.4
+  
+  Every model (with one convolution layer and 2 fully connected layer) seems to give above 35% accuracy after 20+ iterations, this model is found minimal, 
+  1 convolution layer - 4 weights, size [10 x 10]
+  Avg pooling layer - stride = filter_size = 4
+  1st fully connected layer - 36 x 18 
+  2nd fully connected layer - 18 x 10 
+
+  learning rate used - 0.2 
+  batch size used - 20
+  epochs - 40 
+  seed used - 128 
+
+  using 2 layers of these sizes seems to imply that roughly a simple non-linear boundary exists dividing the dataset.
+
+  This model is trained on 5000 dataset examples, on a validation set of 1000, and testing on the entire testdata set 
+  of 10000 examples
+  achieved accuracy is 38.87 % 
+
+

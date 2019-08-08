@@ -1,0 +1,47 @@
+Task 3 
+=========================================================================================
+
+I have used k = 6 for this task and vary lambda from 5 to 25 (considering only integers).
+The hyper parameters for ridge regression are max_iter=30000, lr=0.00001, epsilon = 1e-3 (for 
+faster convergence)
+For Ridge, the training sse is minimised at around lambda = 12.5, from the plot.
+Now, test sse is computed at this lamba is found to be 540282958728.6627. 
+
+Similarly, the hyper parameter for Lasso regression is max_iter=2000
+I have varied lambda from 200000 to 600000 in steps of 5000. The minimal sse is found at lambda = 335000 and the test sse was found to be 534074904915.89386 at this lambda.
+
+Run 'python3 task.py' to plot the graphs. It takes about 20 mins. 
+
+The range of the solution has been found through trial and error.
+
+The plot ( average sse vs lamda) tells us, the over fitting and under fitting nature of the 
+model. At small lambda, the model overfits and hence, we have a high average sse.
+At large lambda, the model underfits and tries to minimise the more dominant regularizing 
+factor, also resulting in high sse. The plot gives at idea of the optimal point where the model 
+doesn't overfit and also does underfit much. Thus, we can tune the 'best' ( neither overfitting 
+nor underfitting) lambda as the one which minimizes this error. This is true for both lasso and 
+ridge regression. However, the lasso regression plot has two minimas reflecting the
+ non-differentiability of it's loss function. 
+
+
+Task 5. 
+=========================================================================================
+
+Out of the 304 dimensions that the weight vector has, 56 dimensions have zero values in the
+Lasso solution and only 10 has have zero values in Ridge solution, i.e, the solution of 
+Laso regression is more sparse than Ridge regression. Also, the sse of lasso solution for 
+optimal lambda is smaller than that for optimal ridge regression. This is also because 
+the disregard of unrelated features in lasso regression wherehas riger regression overfits. 
+
+This is because, in Ridge regression loss function, the regularization term is indifferent to 
+the direction of the weight vector. Hence we can expect a dense vector as a solution which is 
+indeed the case. 
+
+Incase of Lasso Regression loss function, the weights along the axes are added, therefore, it 
+is more likely that sparse vector minimizes the function, which is the case. 
+
+The above fact makes lasso regression more advantageous than ridge regression, in the sense it 
+disregards the features which doesn't contribute to the output. All those features whose 
+weights are zeros or small, can be disregarded, which gives us more insight into the true 
+parameters of the required distribution.
+

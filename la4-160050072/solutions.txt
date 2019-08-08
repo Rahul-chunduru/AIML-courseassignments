@@ -1,0 +1,105 @@
+Name: Rahul Chunduru
+Roll number: 160050072
+========================================
+
+
+================
+     TASK 2
+================
+
+
+1. Run your code on datasets/garden.csv, with different values of k. Looking at the performance plots, does the SSE of k-means algorithm ever increase as the iterations are made? (1 mark)
+Answer:
+	The code has been run for k = 2, 4 , 6 , 8 , 16, 25, 32. In all these cases, the SSE didn't 
+	increase with iterations of the k-means algorithm. Although, the rate of decrease isn't uniform. During some iterations, the decrease is much higher than other.  
+	The decrease in SSE wrt iterations is to be expected as the algorithm assigns better 
+	clustering(in terms of distance) every iteration and as mean points are choosen for the 
+	clustering during every iteration.
+
+3. Look at the files 3lines.png and mouse.png. Manually draw cluster boundaries around the 3 clusters visible in each file (no need to submit the hand drawn clusters). Test the k-means algorithm on the datasets datasets/3lines.csv and datasets/mouse.csv. How does the algorithm’s clustering compare with the clustering you would do by hand? Why do you think this happens? (1 mark)
+Answer:
+	For mouse.csv, it is expected that the clusters would be the face and two ears. The algorithm 
+	has been tested for the random seed s = 123, 1083, 465, 786. For these seeds, the algorithm does a fairly good job clustering the face and ears. We obtain a linear boundary between clusters ( as we are assigning to the closest centroid). Because the ears have lesser number of points than the face, the ear cluster also contains significant portion of the face points.
+
+	For 3lines.csv, it is expected that each line forms a cluster. But the algorithm for the 
+	above given seeds, does a clustering in which the extremes of the lines form a cluster and 
+	the central portion of the lines form another cluster. This is because, the initialization, 
+	for these seeds happen to be at the extremes of the line points. Henceforth, the algorithm 
+	finds the local optimal clustering in which clusters are assigned comprising of the extreme 
+	and the central portions of the lines. The more appropriate clustering occurs if the 
+	initialization assigns points at center of each line. Since, this is more unlikely, the 
+	algorithm doesn't produce the manually drawn clustering.  
+
+
+================
+     TASK 3
+================
+
+1. For each dataset, with kmeansplusplus initialization algorithm, report “average SSE” and "average iterations". Explain the results. (2 mark)
+Answer:
+
+Dataset     |  Initialization | Average SSE      | Average Iterations
+==================================================================
+   100.csv  |        forgy    |  8472.63311469   |  2.43
+   100.csv  |        kmeans++ |  8472.63311469   |  2.0
+  1000.csv  |        forgy    |  21337462.2968   | 3.28
+  1000.csv  |        kmeans++ |  19887301.0042   | 3.16
+ 10000.csv  |        forgy    |  168842238.612   | 21.1
+ 10000.csv  |        kmeans++ |  22323178.8625   |  7.5
+
+ For each of the above dataset, the algorithm is ran 
+
+ The data suggest that kmeans++ obtains better SSE in much smaller iterations and this effect 
+ is much apparent in larger dataset.
+
+ This is because, since kmeans++ initializes the datapoints much farther from each other. This 
+ has the effect of getting closer to the global optima of clusterings ( as seen from the above 
+ data, kmeans++ has smaller average SSE than naive kmeans). Also, as the initialization generally 
+ gets the initial centroids close to the true the centroids, it can be seen that kmeans++
+ converges in much smaller number of iterations than naive kmeans.
+
+ And finally, the superiority of kmeans++ is more apparent in larger data than with smaller 
+ dataset. This is because, the initialization that kmeans++ is very much different than that of
+ naive kmeans, when the datasize is more.
+
+
+================
+  TASK 4
+================
+
+1. Can you observe from the visualization that k-medians algorithm is more robust to outliers as compared to k-means? Why do you think this happens? (1.5 marks)
+Answer:  
+    Yes, by the comparing the performance of kmeans and kmedians, we can observe that kmedians 
+    produce clusters whose "centroids" aren't much affected by outliers and clusters the 
+    datapoints in a much more appropriate way.
+
+    This is because, a far away outlier changes the position of mean much more than it does for 
+    the median. In fact, if the number of outliers are small and if there are sufficiently large 
+    number of points around the true median( without outliers ), then the new median doesn't 
+    change much. Therefore, the clustering is more robust to outliers using kmedians than kmeans.
+
+================
+  TASK 8
+================
+
+1. What do you observe as we reduce the number of clusters (k)? Answer in reference to the quality of decompressed image. (0.5 mark)
+Answer:
+   With smaller number of clusters, the quality of the decompressed image is reduced. For k = 4,8
+   the colour of the image, fine edge details is lost. We instead get a smoothened, segmented 
+   image.
+
+
+2. You can observe that for the small number of clusters, the degree of compression (original size/compressed size) is about the same as that of when we use larger number of clusters even though we need to store lesser number of colors. Can you tell why? How can we increase this ratio in case of smaller number of clusters? [1 mark]
+Answer: 
+   Yes, for both k = 8 and 64, the size of the compressed image is about 83 kb (about 1/3 rd of the original file size). 
+   This is because, although we need to store smaller number of colours( only the centroid 
+   labels), for positional relationship ( position  of pixel vs colour) ,  we are storing an 
+   entry ( of similar size) per each pixel in both the clusterings. Hence, the  size of compressed image isn't much different irrespective of the cluster numbers. 
+
+   We can increase the ratio in a number of ways. One would be to reduce the number of bits used 
+   to represent the colours when smaller number of clusters are used. for example if 8 clusters 
+   are used, then 3 bits per pixel (in 2d case, 9 bits in 3d case) suffices (encode each of the
+   8 configurations as a colour). Also, since the compressed image contains the same entry in 
+   multiple positions, compression techniques, such as run length encoding, huffman encoding, 
+   LZW compression, etc.. can be used.
+

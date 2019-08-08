@@ -1,0 +1,11 @@
+I, Rahul Chunduru(160050072), claim that the code submitted for the assignment is my own
+and havent discussed with my collegues in coming up of this code.
+
+Here are references looked up while writing the code.
+
+1. https://stackoverflow.com/questions/455612/limiting-floats-to-two-decimal-points
+   to round precision.
+
+2. https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
+   for python I/O
+

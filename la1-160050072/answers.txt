@@ -1,0 +1,109 @@
+Task 2
+--------------------------------
+
+Part 1
+------
+
+Nature of the graph:
+
+ Both the test and training accuracies are roughly increasing with the number of data points before saturating
+  (more or less fluctuating) to an accuracy less than 100 %.
+
+The following are the observations made regarding the plot of train and test accuracy vs. no of data points 
+seen.
+
+
+1. The rate of (roughly )increase of accuracies in the test and training data is much higher at the initial 
+   stages of training than at the later stages and saturates around an accuracy. 
+
+   Inference:
+   This probably implies that the shift to actual linear seperator is more faster when the error is 
+   larger upon seeing a given number of training examples. The classifier finds the optimal solution for the 
+   data around which it oscillates upon seeing datapoints. This is because, the algorithm will act as a
+   driving force to get back to the optimal solution, if it gets displaced from it during the training phase.
+
+
+2. The train accuracy is more than that of test accuracy, after seeing any number of points.
+
+	Explanation: 
+	As, the model modifies it's weights to fit the train data, it is expected to fit the train dataset
+	better than the test dataset. 
+
+
+3. The accuracy isn't strictly increasing for both training and testing data sets with increasing seen 
+   points.   
+	
+	Inference: 
+	The updates used in the perceptron learning algorithm doesn't guarantee a strict increase in the 
+	accuracy rate nor in the persistent correct classification of a training example over the update.
+	It only guarantees that over a large number of updates, the weights will converge to the acutal 
+	linear separator of the data if it exits.
+
+4. The accuracy doesn't seem to be converging to 100 % but rather saturate before.
+
+	Explanation: 
+	The perceptron update algorithm guarantees to converge to an ideal linear seperator provided there 
+	exists one for the data. As it usually happens in real life, the data provided probably doesn't have
+	any linear seperator, therefore, the algorithm doesn't provide a 100% accurate classifier, 
+	irrespective of the number of iterations. It always has an non-negligible amount of error while 
+	classifing the data points.	
+
+
+Part 2 
+------ 
+
+1. The training accuracy roughly decreases with increase in training size. 
+   Explanation: 
+   This is because, with fewer dataset, the classifer (1vr) can find a find a better fit 
+   for a linear seperator for the dataset as the ratio of parameters to datapoints is higher. With larger 
+   datasets, since the ratio is small, the accuracy of the classifier would be smaller.
+
+2. The test data accuracy roughly increases with the increase in training size. 
+
+   Explanation: 
+   This is probably because, with increase in training size, the classifer finds a model that is more appropriate for the true distribution of data, i.e, for the unbiased data. In case of smaller
+   training set, the dataset isn't a representative of the true distribution of data, i.e., it has 
+   a bias. Therefore, with increase in training dataset size, the obtained model better classifes the 
+   unseen test data.
+
+   Question: what will the classfier do with zero training data points.
+
+   		In case of no training, the classifier will classify the datapoints based on it's initializtion.
+   		In case the weights are all initialized to be zero, or not defined, then the scores will be same 
+   		across all labels. Then it depends upon the implementation of the classifier( how it breaks ties)
+   		, which index it chooses. In the given implementation, it assigns all the datapoints to the first
+   		class (label 0).
+
+   	Question: What will be the performance of such a classifier ?
+   	
+   		Clearly, again it depends upon the implementation of the classifer and the input distribution. 
+   		For example if the classifier blindly assigns all data points to label 0, and the input distribution
+   		turns out to be from label 0, then we have a high accuracy.
+   		For the implementation and data distribution, the classifier assigns label 0 to all data points and 
+   		the input distribution seems to be uniform across the labels, hence we will have a 1 / no of labels accuracy, in our case 1 / 10 ( ~ 10%) accuracy. 	
+
+
+
+
+
+Task 3.1 
+--------- 
+
+Obtained values: 
+
+1. Perceptron 1vr achieved 73.8 % accuracy over 20000 testdata points while training over 80000 datapoints
+2. Perceptron 1v1 achieved 78.8 % accuracy over 20000 testdata points while training over 80000 datapoints
+3. Perceptron 1vr achieved 71.3 % accuracy over 80000 testdata points while training over 800 datapoints
+4. Perceptron 1v1 achieved 71.5 % accuracy over 80000 testdata points while training over 800 datapoints
+
+explanation : 
+
+Upon a larger dataset, Perceptron 1v1 achieves a better accuracy, probably because, 
+there are more parameters in the 1v1 classifer and hence better fits the training data
+as well as the test data.
+
+When trained upon a smaller dataset, both the classifiers can find the optimal linear seperator
+of the dataset, and hence, the testdata accuracy is more or less the same.
+
+Also with smaller dataset, the model obtained by both the classifiers is less than that from a larger dataset,
+this is because, smaller dataset doesn't form a good representation of the true distribution. 

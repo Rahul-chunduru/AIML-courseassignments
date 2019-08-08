@@ -1,0 +1,12 @@
+No major reference has been used while coming up with this code. 
+Stack overflow has been referenced for performing transpose and multiplication on numpy arrays.
+
+The code isn't optimal, in the sense it uses a lot of for loops wherehas better implementation constructs might exist.
+
+The algorithm for performing forwardpass and backwardpass is my own. 
+
+While coming up with models, especially for task 2.4,
+I have discussed with my collegues about possible models that could be used.
+
+However, I  came up wiht the final model which I trained and submitted (1 convolution layer and (36,18,10) fully connected 
+layer) without anyone's help.

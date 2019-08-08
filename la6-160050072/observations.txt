@@ -1,0 +1,42 @@
+Observations about plot.png
+=====================================================
+1. It can be seen that the number of actions decreases with increase in determinism in 
+   the state transitions and the agent choices, overall, which is to be expected as 
+   with smaller p it makes a random choice and hence is expected to perform worse than
+   an agent who takes an informed choice.
+
+2. The graph obtained isn't strictly decreasing with increase in determinism, p.
+   Probably, because, for the 10 x 10 graph, the random picking for smaller p took a 'better' 
+   choice of moves than for larger p. 
+
+   We would however, need to run the code with different seeds and graphs to truly comment on 
+   true dependence of no. of actions with p, although, it can be expected to be decreasing. 
+   As, with increase in p, the agent takes a more informed action.
+
+Observations about path.png
+=====================================================
+1. The path taken by the agent isn't a straight line, i.e, the agent explored different 
+   actions around the actual path, hence we get a route spread over the optimal path.
+
+2. The path has been observed with varing p, with smaller p, the spread around the 
+   optimal path is more. 
+
+   p determines the determinism of the agent. The higher the indeterminism in the agent
+   and the world, the harder and insensible is the "optimal" choice. 
+
+
+Files submitted. 
+
+1. valueiteration.sh 
+2. valueiteration.py # implements the value iteration.
+
+3. encoder.sh 
+4. encoder.py # implements the encoding.
+
+5. decoder.sh 
+6. decoder.py # implements the decoding.
+
+7. plot.png, path.png
+8. plot.py #plots values for the grid10.txt file.
+
+The code is written in python3.

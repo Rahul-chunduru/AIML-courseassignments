@@ -1,0 +1,15 @@
+for random sampling
+https://stackoverflow.com/questions/22741319/what-does-random-sample-method-in-python-do
+
+for average of list of lists
+https://stackoverflow.com/questions/10919664/averaging-list-of-lists-python
+
+
+for weighted version of random.choice
+https://stackoverflow.com/questions/3679694/a-weighted-version-of-random-choice
+
+for converting ascii to int
+https://stackoverflow.com/questions/3673428/convert-int-to-ascii-and-back-in-python
+
+for checking 2d or 3d 
+https://stackoverflow.com/questions/15985389/python-check-if-list-is-multidimensional-or-one-dimensional

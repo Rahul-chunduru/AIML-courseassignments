@@ -1,0 +1,47 @@
+1. Playing with switches.
+   
+   Bagging:- 
+   1. smaller training data set 100: overfits (gets 93% training accuracy but 63% test accuracy)
+   2. with r = 0.5, we almost get the same accuracy as that with r = 1.0 
+   3. Using just 10 classifiers instead of 20, we get a similar test accuracy. 
+   Boosting:- 
+   1. with smaller training data set, data overfits greatly (99% training accuracy vs 
+    66% test accuracy)
+   2. A lower accuracy is observed (75.4%) when 10 classifiers are used.
+
+2. Observations about the graphs obtained:
+	// Note :- util.sample is used for sampling, ratio is set to 0.55 
+
+	- In boosting, there is a steep increase in accuracy from num_classifiers = 1 to 
+	num_classifiers = 2
+
+	- Accuracy in bagging is much smoother and stagnates soon.
+
+    - In boosting, with increase in number of classfiers, the errors made by one classifier gets captured by another. Thus the accuracy increases continuously with the number of 
+    classfiers.
+
+    It is to be noted that the accuracy has a positive slope wrt the number of classifiers, 
+    this is in accordance with the theorem, which states that by using sufficiently high number of classifiers, we can achieve 100% training accuracy.
+
+    - For bagging, we see that with increase in number of classifiers, the accuracy doesn't increase monotonically. 
+    
+    The accuracy for training gets more or less stagnant, indicating that using further 
+    higher hyperparameters wont change the training accuracy.
+   
+
+    - Finally, for both the classifiers, we have training accuracy more than validation accuracy which is similiar to test accuracy.
+
+3. 
+   The training accuracy is higher for boosting than bagging. Also, the training accuracy for boosting has
+   a positive slope wherehas, for bagging it more or less remains constant. Boosting fits the training data better as each iteration improves upon the misclassifications of the previous iterations. 
+   This is in accordance with the theorem that boosting achieves 100% accuracy with sufficiently high number of
+   classifiers. Wherehas, bagging stagnates.
+   The similar test accuracies is because both the algorithms, probably find the optimal solution for the 
+   true distribution.  
+
+4. True. a weighted sum of perceptrons isn't equivalent to a single perceptron.
+   For example, if the 2-input perceptrons (with bias), which classify three lines(not 
+   concurrent) are all oriented clockwise, then resulting ensemble will classify a 
+   non-linear boundary. This cant be classified by a single perceptron. Hence, proved. 
+   The image provided contains the ensemble described.
+

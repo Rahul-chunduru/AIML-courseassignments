@@ -1,0 +1,4 @@
+I, Rahul Chunduru (160050072), state that no external resources has been used for the 
+completion of this assignment. No advanced datastructres other than the provided are used, 
+and the feature design is my own. Although I have tested several well known operators (sobel and other)
+while coming up with the final features, the final used features aren't looked up from any resource. 
